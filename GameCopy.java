@@ -5,7 +5,7 @@
 import java.util.*;
 
 
-public class BRUCEA_FINALPROJECT{
+public class GameCopy{
 
     public static String battleTutorial(){
         System.out.println("There are 4 types of moves, basic (B), medium (M), advanced (A), and healing (H).");
@@ -20,7 +20,7 @@ public class BRUCEA_FINALPROJECT{
         return "Good luck, the game will restart now!";
     }
 
-    public static void gameOn(){
+    public static void gameOn(String[] bulbasaurMoves, String[] squirtleMoves, String[] charmanderMoves, String[] darkraiMoves, String[] darkraiPossibleMoves){
         Scanner userInput = new Scanner(System.in);
         System.out.println("....");
         System.out.println("....");
@@ -47,7 +47,7 @@ public class BRUCEA_FINALPROJECT{
                 System.out.println("Congratulations! You chose " + lowerPokemonChoice + " Good luck, and battle with heart!");
                 System.out.println(" ");
                 System.out.println(" ");
-                String darkGymOutcome = darkGym(pokemonChoice);
+                String darkGymOutcome = darkGym(pokemonChoice, bulbasaurMoves, charmanderMoves, squirtleMoves, darkraiMoves, darkraiPossibleMoves);
                 if(darkGymOutcome == "You were no match for the gym leader. Better luck next time."){
                     System.out.println("You were no match for the gym leader. Better luck next time.");
                     System.out.println("Would you like to play again? (Yes or No).");
@@ -58,7 +58,7 @@ public class BRUCEA_FINALPROJECT{
                             System.out.println("Okay, better luck next time.");
                             break;
                         } else {
-                            gameOn();
+                            gameOn(bulbasaurMoves, charmanderMoves, squirtleMoves, darkraiMoves, darkraiPossibleMoves);
                         }
                     }
                 } else if(darkGymOutcome == "Congrats, you won! You recieved the Darkness Badge from Cristian!"){
@@ -71,7 +71,7 @@ public class BRUCEA_FINALPROJECT{
                 }
         } else {
             System.out.println("Please enter a valid pokemon or spell the Pokemons name correctly to play. (Case Sensitive)");
-            gameOn();
+            gameOn(bulbasaurMoves, charmanderMoves, squirtleMoves, darkraiMoves, darkraiPossibleMoves);
         }
     }
 
@@ -81,7 +81,7 @@ public class BRUCEA_FINALPROJECT{
 
 
 
-    public static String darkGym(String yourPokemon){
+    public static String darkGym(String yourPokemon, String[] bulbasaurMoves, String[] charmanderMoves, String[] squirtleMoves, String[] darkraiMoves, String[] darkraiPossibleMoves){
         Random rand = new Random();
         Scanner userInput = new Scanner(System.in);
         System.out.println("Welcome to your first battle with the elite three!");
@@ -89,17 +89,14 @@ public class BRUCEA_FINALPROJECT{
         System.out.println(" ");
         String lowerPokemon = yourPokemon.toLowerCase();
         if(lowerPokemon.equals("bulbasaur")){
-            String[] bulbasaurMoves = {"TailWhip (M)", "LeafBlade (A)", "Tackle (B)"};
             for(String bulbMoves : bulbasaurMoves){
                 System.out.println(bulbMoves);
             }
         } else if(lowerPokemon.equals("charmander")){
-            String[] charmanderMoves = {"Scratch (M)", "FlameThrower (A)", "Tackle (B)"};
             for(String charMoves : charmanderMoves){
                 System.out.println(charMoves);
             }
         } else {
-            String[] squirtleMoves = {"Heal (H)", "WaterGun (A)", "Tackle (B)"};
             for(String squirMoves : squirtleMoves){
                 System.out.println(squirMoves); 
             }
@@ -117,7 +114,6 @@ public class BRUCEA_FINALPROJECT{
             String leadersPokemon = "Darkrai";
             int darkraiHealth = rand.nextInt(50,120);
             int usersPokemonHealth = rand.nextInt(50,99);
-            String[] darkraiMoves = {"PlasmaBall (A)", "ShadowHunter (A)", "Nightmare (M)"};
             System.out.println("Hello, my name is " + gymLeader + ", I am the leader of the dark type gym for the Elite Three!");
             System.out.println("My Pokemon is " + leadersPokemon + ". Good luck in battle, you will certainly need it!");
             System.out.println(" ");
@@ -129,17 +125,14 @@ public class BRUCEA_FINALPROJECT{
             while(usersPokemonHealth >= 0 && darkraiHealth >= 0){
                 System.out.println("Your Moves: ");
                 if(lowerPokemon.equals("bulbasaur")){
-                    String[] bulbasaurMoves = {"TailWhip (M)", "LeafBlade (A)", "Tackle (B)"};
                     for(String bulbMoves : bulbasaurMoves){
                         System.out.println(bulbMoves);
                     }
                 } else if(lowerPokemon.equals("charmander")){
-                    String[] charmanderMoves = {"Scratch (M)", "FlameThrower (A)", "Tackle (B)"};
                     for(String charMoves : charmanderMoves){
                         System.out.println(charMoves);
                     }
                 } else {
-                    String[] squirtleMoves = {"Heal (H)", "WaterGun (A)", "Tackle (B)"};
                     for(String squirMoves : squirtleMoves){
                         System.out.println(squirMoves); 
                     }
@@ -198,8 +191,7 @@ public class BRUCEA_FINALPROJECT{
                         }
                     } 
                     if(i == 1) {
-                        String [] darkraiPossibleMove = {"PlasmaBall", "ShadowHunter", "Nightmare"};
-                        String moveChoice = darkraiPossibleMove[(int) (Math.random() * darkraiPossibleMove.length)];
+                        String moveChoice = darkraiPossibleMoves[(int) (Math.random() * darkraiPossibleMove.length)];
                         if(moveChoice.equals("Nightmare")){
                             System.out.println("Darkrai used " + moveChoice);
                             int userPokemonNewHealth = usersPokemonHealth - mediumMove;
@@ -244,6 +236,11 @@ public class BRUCEA_FINALPROJECT{
 
     public static void main(String [] args){
     Scanner userInput = new Scanner(System.in);
+    String[] bulbasaurMoves = {"TailWhip (M)", "LeafBlade (A)", "Tackle (B)"};
+    String[] charmanderMoves = {"Scratch (M)", "FlameThrower (A)", "Tackle (B)"};
+    String[] squirtleMoves = {"Heal (H)", "WaterGun (A)", "Tackle (B)"};
+    String[] darkraiMoves = {"PlasmaBall (A)", "ShadowHunter (A)", "Nightmare (M)"};
+    String [] darkraiPossibleMoves = {"PlasmaBall", "ShadowHunter", "Nightmare"};
     while(true){
     System.out.println("Welcome to Pokemon Lawrentian! Would you like an introduction to how battling works (Yes or No)? This is Recommended for first time players.");
     String tutorial = userInput.nextLine();
@@ -252,7 +249,7 @@ public class BRUCEA_FINALPROJECT{
         System.out.println(battleTutorial());
         System.out.println(" ");
     } else if (lowerTutorial.equals("no")) {
-        gameOn();
+        gameOn(bulbasaurMoves, charmanderMoves, squirtleMoves, darkraiMoves, darkraiPossibleMoves);
         break;
     } else {
         System.out.println("Please enter either yes or no next time to play the game.");
