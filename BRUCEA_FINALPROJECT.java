@@ -244,6 +244,8 @@ public class BRUCEA_FINALPROJECT{
 
     public static void main(String [] args){
     Scanner userInput = new Scanner(System.in);
+    String[] bulbasaurMoves = {"TailWhip (M)", "LeafBlade (A)", "Tackle (B)"};
+    
     while(true){
     System.out.println("Welcome to Pokemon Lawrentian! Would you like an introduction to how battling works (Yes or No)? This is Recommended for first time players.");
     String tutorial = userInput.nextLine();
