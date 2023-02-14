@@ -1,6 +1,7 @@
 // Adam Bruce 
 // CMSC 150 Final Project W2023
 // IHRTLUHC
+// This is the original version before building classes.
 
 import java.util.*;
 
@@ -20,7 +21,7 @@ public class GameCopy{
         return "Good luck, the game will restart now!";
     }
 
-    public static void gameOn(String[] bulbasaurMoves, String[] squirtleMoves, String[] charmanderMoves, String[] darkraiMoves, String[] darkraiPossibleMoves){
+    public static void gameOn(String[] bulbasaurMoves, String[] charmanderMoves, String[] squirtleMoves, String[] darkraiMoves, String[] darkraiPossibleMoves){
         Scanner userInput = new Scanner(System.in);
         System.out.println("....");
         System.out.println("....");
@@ -63,7 +64,78 @@ public class GameCopy{
                     }
                 } else if(darkGymOutcome == "Congrats, you won! You recieved the Darkness Badge from Cristian!"){
                     System.out.println("Congrats, you won! You recieved the Darkness Badge from Cristian!");
-                    System.out.println(fireGym());
+                    String[] ivysaurMoves = {"TailWhip (M)", "LeafBlade (A)", "FlowerPower (H)"};
+                    String[] charmeleonMoves = {"Scratch (M)", "FlameThrower (A)", "DragonPulse (A)"};
+                    String[] wartortleMoves = {"Heal (H)", "WaterGun (A)", "HydroPump (A)"};
+                    String[] arcanineMoves = {"FireFang (A)", "Bite (A)", "ExtremeHeal (H)"};
+                    String [] arcaninePossibleMoves = {"FireFang", "Bite", "ExtremeHeal"};
+                    if(lowerPokemonChoice.equals("bulbasaur")){
+                        System.out.println(" ");
+                        System.out.println("What's this? " + lowerPokemonChoice + " is evolving!");
+                        System.out.println("....");
+                        System.out.println("....");
+                        System.out.println("*Muffled Yelps*");
+                        System.out.println("....");
+                        System.out.println("....");
+                        String stageTwoIvysaur = "Ivysaur";
+                        String lowerIvysaur = stageTwoIvysaur.toLowerCase();
+                        System.out.println("Congratulations! Your " + lowerPokemonChoice + " evolved into " + lowerIvysaur + "!" );
+                        System.out.println(lowerIvysaur + " forgot how to use tackle and learned " + ivysaurMoves[2] + "!");
+                        System.out.println(" ");
+                        System.out.println(lowerIvysaur + "'s current moves are: ");
+                        for (String move : ivysaurMoves){
+                            System.out.println(move);
+                        }
+                        System.out.println(" ");
+                        System.out.println(" ");
+                        String fireGymOutcome = fireGym(lowerIvysaur, ivysaurMoves, charmeleonMoves, wartortleMoves, arcanineMoves, arcaninePossibleMoves);
+                        System.out.println(fireGymOutcome);
+                        return;
+                    } else if (lowerPokemonChoice.equals("charmander")){
+                        System.out.println(" ");
+                        System.out.println("What's this? " + lowerPokemonChoice + " is evolving!");
+                        System.out.println("....");
+                        System.out.println("....");
+                        System.out.println("*Muffled Yelps*");
+                        System.out.println("....");
+                        System.out.println("....");
+                        String stageTwoCharmeleon = "Charmeleon";
+                        String lowerCharmeleon = stageTwoCharmeleon.toLowerCase();
+                        System.out.println("Congratulations! Your " + lowerPokemonChoice + " evolved into " + lowerCharmeleon + "!" );
+                        System.out.println(lowerCharmeleon + " forgot how to use tackle and learned " + charmeleonMoves[2] + "!");
+                        System.out.println(" ");
+                        System.out.println(lowerCharmeleon + "'s current moves are: ");
+                        for (String move : charmeleonMoves){
+                            System.out.println(move);
+                        }
+                        System.out.println(" ");
+                        System.out.println(" ");
+                        String fireGymOutcome = fireGym(lowerCharmeleon, ivysaurMoves, charmeleonMoves, wartortleMoves, arcanineMoves, arcaninePossibleMoves);
+                        System.out.println(fireGymOutcome);
+                        return;
+                    } else {
+                        System.out.println(" ");
+                        System.out.println("What's this? " + lowerPokemonChoice + " is evolving!");
+                        System.out.println("....");
+                        System.out.println("....");
+                        System.out.println("*Muffled Yelps*");
+                        System.out.println("....");
+                        System.out.println("....");
+                        String stageTwoWartortle = "Wartortle";
+                        String lowerWartortle = stageTwoWartortle.toLowerCase();
+                        System.out.println("Congratulations! Your " + lowerPokemonChoice + " evolved into " + lowerWartortle + "!" );
+                        System.out.println(lowerWartortle + " forgot how to use tackle and learned " + wartortleMoves[2] + "!");
+                        System.out.println(" ");
+                        System.out.println(lowerWartortle + "'s current moves are: ");
+                        for (String move : wartortleMoves){
+                            System.out.println(move);
+                        }
+                        System.out.println(" ");
+                        System.out.println(" ");
+                        String fireGymOutcome = fireGym(lowerWartortle, ivysaurMoves, charmeleonMoves, wartortleMoves, arcanineMoves, arcaninePossibleMoves);
+                        System.out.println(fireGymOutcome);
+                        return;
+                    }
                 } else if(darkGymOutcome == "Okay, play again when you are ready to battle!"){
                     System.out.println("Okay, play again when you are ready to battle!");
                 } else {
@@ -191,7 +263,7 @@ public class GameCopy{
                         }
                     } 
                     if(i == 1) {
-                        String moveChoice = darkraiPossibleMoves[(int) (Math.random() * darkraiPossibleMove.length)];
+                        String moveChoice = darkraiPossibleMoves[(int) (Math.random() * darkraiPossibleMoves.length)];
                         if(moveChoice.equals("Nightmare")){
                             System.out.println("Darkrai used " + moveChoice);
                             int userPokemonNewHealth = usersPokemonHealth - mediumMove;
@@ -226,8 +298,167 @@ public class GameCopy{
     return "Please enter either Yes or No to make a decision next time.";
 }
 
-    public static String fireGym(){
-        return "My Name is JP, the fire gym leader";
+    public static String fireGym(String userPokemon, String[] ivysaurMoves, String[] charmeleonMoves, String[] wartortleMoves, String[] arcanineMoves, String[] arcaninePossibleMoves){
+        Random rand = new Random();
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Welcome to your second battle with the elite three!");
+        System.out.println("Before battle comenses, would you like a refresher of " + userPokemon + "s current battle moves?");
+        while(true){
+            System.out.println(" ");
+            String moveRefresher = userInput.nextLine();
+            String lowerMoveRefresher = moveRefresher.toLowerCase();
+            if(lowerMoveRefresher.equals("yes")){
+                if(userPokemon.equals("ivysaur")){
+                    for(String move : ivysaurMoves){
+                        System.out.println(move);
+                    }
+                    break;
+                } else if(userPokemon.equals("charmeleon")){
+                    for(String move : charmeleonMoves){
+                        System.out.println(move);
+                    }
+                    break;
+                } else {
+                    for(String move : wartortleMoves){
+                        System.out.println(move); 
+                    }
+                    break;
+                } 
+            } else if (lowerMoveRefresher.equals("no")) {
+                System.out.print("Okay, get ready for battle then!");
+                break;
+            } else {
+                System.out.println("Please enter a valid form of yes or no.");
+            }
+        }
+        System.out.println(" ");
+        System.out.println("Would you like to start the battle (Yes or No)?");
+        String battleTime = userInput.nextLine();
+        String lowerBattleTime = battleTime.toLowerCase();
+        if(lowerBattleTime.equals("no")){
+            return "Okay, play again when you are ready to battle!";
+        }
+        if(lowerBattleTime.equals("yes")){
+            System.out.println(" ");
+            String gymLeader = "JP";
+            String leadersPokemon = "Arcanine";
+            int arcanineHealth = rand.nextInt(75,150);
+            int usersPokemonHealth = rand.nextInt(75,140);
+            System.out.println("Hello, my Name is " + gymLeader + " the fire gym leader!");
+            System.out.println("Well, you made it past Cristian, but you will be no match for my Pokemon " + leadersPokemon + ".");
+            System.out.println("I've spent my entire life training for these battles, and I do not intend to lose to you!");
+            System.out.println(" ");
+            System.out.println("Beware, " + leadersPokemon + " is powerful, he has these moves: ");
+            for(String battleMove : arcanineMoves){
+                System.out.println(battleMove);
+            }
+            System.out.println(" ");
+            while(usersPokemonHealth >= 0 && arcanineHealth >= 0){
+                System.out.println("Your Moves: ");
+                if(userPokemon.equals("ivysaur")){
+                    for(String move : ivysaurMoves){
+                        System.out.println(move); 
+                    }
+                } else if(userPokemon.equals("charmeleon")){
+                    for(String move : charmeleonMoves){
+                        System.out.println(move); 
+                    }
+                } else {
+                    for(String move : wartortleMoves){
+                        System.out.println(move); 
+                    }
+                }
+                System.out.println(" ");
+                System.out.println(userPokemon + "s current Health is: " + usersPokemonHealth);
+                System.out.println(leadersPokemon + "s Pokemon's current health is: " + arcanineHealth);
+                System.out.println(" ");
+                for(int i = 0; i < 2; i++){
+                    int mediumMove = rand.nextInt(10, 30);
+                    int advanceMove = rand.nextInt(2, 60);
+                    int healing = rand.nextInt(25,50);
+                    if(i == 0){
+                    System.out.println("What battle move would you like to use?");
+                    String userAttack = userInput.nextLine();
+                    String lowerUserAttack = userAttack.toLowerCase();
+                    System.out.println(" ");
+                        if(lowerUserAttack.equals("dragonpulse")){
+                            int arcanineNewHealth = arcanineHealth - advanceMove;
+                            arcanineHealth = arcanineNewHealth;
+                            System.out.println("You dealt " + advanceMove + " damage. Arcanine now has " + arcanineHealth + " health remaining.");
+                            System.out.println(" ");
+                        } else if(lowerUserAttack.equals("tailwhip")){
+                            int arcanineNewHealth = arcanineHealth - mediumMove;
+                            arcanineHealth = arcanineNewHealth;
+                            System.out.println("You dealt " + mediumMove + " damage. Arcanine now has " + arcanineHealth + " health remaining.");
+                            System.out.println(" ");
+                        } else if(lowerUserAttack.equals("scratch")){
+                            int arcanineNewHealth = arcanineHealth - mediumMove;
+                            arcanineHealth = arcanineNewHealth;
+                            System.out.println("You dealt " + mediumMove + " damage. Arcanine now has " + arcanineHealth + " health remaining.");
+                            System.out.println(" ");
+                        } else if(lowerUserAttack.equals("heal") || lowerUserAttack.equals("flowerpower")){
+                            int userPokemonNewHealth = usersPokemonHealth + healing;
+                            usersPokemonHealth = userPokemonNewHealth;
+                            System.out.println("You gained " + healing + " health. Your Pokemon now has " + usersPokemonHealth + " health remaining.");
+                            System.out.println(" ");
+                        } else if(lowerUserAttack.equals("leafblade")){
+                            int arcanineNewHealth = arcanineHealth - advanceMove;
+                            arcanineHealth = arcanineNewHealth;
+                            System.out.println("You dealt " + advanceMove + " damage. Arcanine now has " + arcanineHealth + " health remaining.");
+                            System.out.println(" ");
+                        } else if(lowerUserAttack.equals("flamethrower")){
+                            int arcanineNewHealth = arcanineHealth - advanceMove;
+                            arcanineHealth = arcanineNewHealth;
+                            System.out.println("You dealt " + advanceMove + " damage. Arcanine now has " + arcanineHealth + " health remaining.");
+                            System.out.println(" ");
+                        } else if(lowerUserAttack.equals("watergun")) {
+                            int arcanineNewHealth = arcanineHealth - advanceMove;
+                            arcanineHealth = arcanineNewHealth;
+                            System.out.println("You dealt " + advanceMove + " damage. Arcanine now has " + arcanineHealth + " health remaining.");
+                            System.out.println(" ");
+                        } else if(lowerUserAttack.equals("hydropump")) {
+                            int arcanineNewHealth = arcanineHealth - advanceMove;
+                            arcanineHealth = arcanineNewHealth;
+                            System.out.println("You dealt " + advanceMove + " damage. Arcanine now has " + arcanineHealth + " health remaining.");
+                            System.out.println(" ");
+                        } else {
+                            System.out.println("You did not enter a valid move. Your turn is skipped! Enter a valid move next turn.");
+                        }
+                    } 
+                    if(i == 1) {
+                        String moveChoice = arcaninePossibleMoves[(int) (Math.random() * arcaninePossibleMoves.length)];
+                        if(moveChoice.equals("FireFang")){
+                            System.out.println("Arcanine used " + moveChoice);
+                            int userPokemonNewHealth = usersPokemonHealth - mediumMove;
+                            usersPokemonHealth = userPokemonNewHealth;
+                            System.out.println("Arcanine dealt " + mediumMove + " damage. " + userPokemon + " now has " + usersPokemonHealth + " health remaining.");
+                            System.out.println(" ");
+                        } else if(moveChoice.equals("Bite")){
+                            System.out.println("Arcanine used " + moveChoice);
+                            int userPokemonNewHealth = usersPokemonHealth - advanceMove;
+                            usersPokemonHealth = userPokemonNewHealth;
+                            System.out.println("Arcanine dealt " + advanceMove + " damage. " + userPokemon + " now has " + usersPokemonHealth + " health remaining.");
+                            System.out.println(" ");
+                        } else {
+                            System.out.println("Arcanine used " + moveChoice);
+                            int arcanineNewHealth = arcanineHealth + healing;
+                            arcanineHealth = arcanineNewHealth;
+                            System.out.println("Arcanine gained " + healing + " health. Arcanine now has " + arcanineHealth + " health remaining.");
+                            System.out.println(" ");
+                        }
+                    }
+                }
+            if(usersPokemonHealth <= 0) {
+                return "You were no match for the gym leader. Better luck next time.";
+            } 
+            if (arcanineHealth <= 0){
+                return "Congrats, you won! You recieved the Fire Badge from JP!";
+            }
+            System.out.println("This turn has ended, both Pokemon still have health remaining. The next turn begins now!");
+            System.out.println(" ");
+            }
+        }
+    return "Please enter either Yes or No to make a decision next time.";
     }
 
 //    public static String grandMaster(){
@@ -255,11 +486,10 @@ public class GameCopy{
         System.out.println("Please enter either yes or no next time to play the game.");
         break;
     }
+    break;
     }
     }
 }
-
-
 
 
 
