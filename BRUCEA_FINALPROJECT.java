@@ -5,7 +5,7 @@
 import java.util.*;
 
 
-public class GameCopy{
+public class BRUCEA_FINALPROJECT{
 
     public static String battleTutorial(){
         System.out.println("There are 4 types of moves, basic (B), medium (M), advanced (A), and healing (H).");
