@@ -2,6 +2,7 @@
 // CMSC 150 Final Project W2023
 // IHRTLUHC
 // This is the original version before building classes.
+// This version only supports up to the fire gym, but is a useful scaffold to visualize how I designed my classes. 
 
 import java.util.*;
 
@@ -68,7 +69,7 @@ public class GameCopy{
                     String[] charmeleonMoves = {"Scratch (M)", "FlameThrower (A)", "DragonPulse (A)"};
                     String[] wartortleMoves = {"Heal (H)", "WaterGun (A)", "HydroPump (A)"};
                     String[] arcanineMoves = {"FireFang (A)", "Bite (A)", "ExtremeHeal (H)"};
-                    String [] arcaninePossibleMoves = {"FireFang", "Bite", "ExtremeHeal"};
+                    String[] arcaninePossibleMoves = {"FireFang", "Bite", "ExtremeHeal"};
                     if(lowerPokemonChoice.equals("bulbasaur")){
                         System.out.println(" ");
                         System.out.println("What's this? " + lowerPokemonChoice + " is evolving!");
