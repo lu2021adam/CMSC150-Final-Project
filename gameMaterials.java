@@ -72,22 +72,14 @@ public class gameMaterials {
 
 
     public static String outro(){
-        Scanner userInput = new Scanner(System.in);
-        String[] pokemonNames = {"Bulbasaur", "Charmander", "Squirtle"};
-        System.out.println("Please select one of these Pokémon: ");
-        for(String elem : pokemonNames){
-            System.out.println(elem);
-        }
+        System.out.println("*Woooossshhh*");
+        System.out.println("Professor Ackles Vanishes...");
         System.out.println(" ");
-        String pokemonChoice = userInput.nextLine();
-        String lowerPokemonChoice = pokemonChoice.toLowerCase();
-        if(lowerPokemonChoice.equals("bulbasaur") || lowerPokemonChoice.equals("charmander") || lowerPokemonChoice.equals("squirtle")){
-                System.out.println("Congratulations! You chose " + lowerPokemonChoice + " Good luck, and battle with heart!");
-                System.out.println(" ");
-                return lowerPokemonChoice;
-        } else {
-            return "Please enter a valid pokemon or spell the Pokemons name correctly to play.";
-        }
+        System.out.println("....");
+        System.out.println("....");
+        System.out.println("Professor Bruce appears");
+        System.out.println("Well, it seems my intuiti");
+
     }
 
 
